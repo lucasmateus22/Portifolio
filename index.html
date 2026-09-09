@@ -1,50 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
-        </style>
-    <title>Formulário</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Software Engineer</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <section>
-        <form action="" method="post" name="FormEntrace">
-            <div class="inputBox">
-            <label for="">Name:</label>
-            <input type="text" id="name-input" class="formInput" maxlength="70" minlength="15" autocomplete="off" onkeydown="OnlyLetter()" pattern="[A-Za-z]+" title="Only letters">
-            <label for="">E-mail:</label>
-            <input type="email" id="mail-input" class="formInput" maxlength="40" minlength="10" autocomplete="off" title="exemple@email.com">
-            <label for="">Phone: (optional)</label>
-            <input type="tel" id="tel-input" class="formInput" maxlength="16" onkeyup="handlePhone(event)" placeholder="99 99 99090-9090" autocomplete="off">
-            <div>
-                <label for="">Password:<span onclick="changerTypeInput()" class="togglepass" for="">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" id="IconChangeColor">
-                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" id="mainIconPathAttribute" fill="#000000"></path>
-                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" id="mainIconPathAttribute" fill="#000000"></path>
-                    </svg></span></label>
-                <input type="password" id="Pass-input" class="formInput" minlength="8" autocomplete="off">
-                
-            </div> 
-        </form>  
-            <div class="boxButtonForm">
-                <button type="button" onclick="sendInfoForm(), lengthMin()">Send</button>
-                <button type="button" onclick="clearOutp()">Clear output</button>
-                <button type="reset" onclick="FormClear()">Clear form</button> 
-                <button type="submit">Confirm -></button>
-            </div> 
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white">
+
+  <!-- Navegação -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <span class="font-bold text-lg tracking-tight text-cyan-400">&lt;Dev /&gt;</span>
+      <nav class="flex gap-6 text-sm font-medium text-slate-300">
+        <a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a>
+        <a href="#skills" class="hover:text-cyan-400 transition">Skills</a>
+        <a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a>
+        <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="sobre" class="py-24 px-6 max-w-5xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-semibold mb-6">
+      <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+      Desenvolvimento • QA • Segurança
+    </div>
+    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
+      Desenvolvimento de software com foco em <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">código seguro e resiliente</span>.
+    </h1>
+    <p class="text-lg text-slate-400 max-w-2xl mb-8 leading-relaxed">
+      Desenvolvo aplicações web escaláveis integrando arquitetura sólida, testes automatizados (unitários, integração e E2E) e princípios práticos de segurança de aplicações (AppSec).
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="#projetos" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-3 rounded-lg transition text-sm">
+        Ver Projetos & Casos
+      </a>
+      <a href="https://github.com" target="_blank" class="border border-slate-700 hover:border-slate-500 text-slate-200 font-medium px-6 py-3 rounded-lg transition text-sm">
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- Skills Grid -->
+  <section id="skills" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-800">
+    <h2 class="text-2xl font-bold tracking-tight text-white mb-8">Habilidades Técnicas</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Card Dev -->
+      <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/50">
+        <h3 class="font-semibold text-lg text-cyan-400 mb-2">Desenvolvimento Web</h3>
+        <p class="text-xs text-slate-400 mb-4">Construção de aplicações completas, responsivas e performáticas.</p>
+        <ul class="text-sm text-slate-300 space-y-2">
+          <li>• JavaScript / TypeScript</li>
+          <li>• React / Next.js / Tailwind CSS</li>
+          <li>• Node.js / NestJS / APIs REST</li>
+          <li>• PostgreSQL / Docker</li>
+        </ul>
+      </div>
+
+      <!-- Card QA -->
+      <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/50">
+        <h3 class="font-semibold text-lg text-emerald-400 mb-2">Qualidade & Testes (QA)</h3>
+        <p class="text-xs text-slate-400 mb-4">Garantia de funcionamento consistente e prevenção de regressões.</p>
+        <ul class="text-sm text-slate-300 space-y-2">
+          <li>• Testes E2E (Playwright)</li>
+          <li>• Testes Unitários & Integração (Vitest / Jest)</li>
+          <li>• Qualidade de Código (SonarQube)</li>
+          <li>• Padronização (ESLint, Prettier, Husky)</li>
+        </ul>
+      </div>
+
+      <!-- Card Sec -->
+      <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/50">
+        <h3 class="font-semibold text-lg text-amber-400 mb-2">Segurança (AppSec)</h3>
+        <p class="text-xs text-slate-400 mb-4">Proteção preventiva contra vulnerabilidades comuns da web.</p>
+        <ul class="text-sm text-slate-300 space-y-2">
+          <li>• Princípios OWASP Top 10</li>
+          <li>• Content Security Policy (CSP)</li>
+          <li>• Análise de vulnerabilidades (DAST / ZAP)</li>
+          <li>• Autenticação e cabeçalhos seguros</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-800">
+    <h2 class="text-2xl font-bold tracking-tight text-white mb-8">Projetos em Destaque</h2>
+    <div class="space-y-8">
+
+      <!-- Projeto 1 -->
+      <article class="p-6 sm:p-8 rounded-xl border border-slate-800 bg-slate-900/40">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-3">
+          <h3 class="text-xl font-bold text-white">Sistema de Gestão Automatizada de Documentos</h3>
+          <span class="text-xs px-2.5 py-1 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">Dev + QA</span>
         </div>
-            <output>
-                <h2>Data output</h2>
-                <h4 id="NameOutput"></h4>
-                <h4 id="MailOutput"></h4>
-                <h4 id="TelOutput"></h4>
-            </output>
-    </section>
-    <script src="./form.js"></script>
-    <script src="./input.js"></script>
+        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+          Plataforma web para geração dinâmica de templates e controle de formulários complexos. Implementou cobertura de testes automatizados com Playwright para validação de fluxos críticos de usuário antes de deploys.
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs text-slate-300 mb-6">
+          <span class="px-2 py-1 bg-slate-800 rounded">React</span>
+          <span class="px-2 py-1 bg-slate-800 rounded">Tailwind CSS</span>
+          <span class="px-2 py-1 bg-slate-800 rounded">Playwright</span>
+          <span class="px-2 py-1 bg-slate-800 rounded">Node.js</span>
+        </div>
+        <div class="flex gap-4 text-sm font-medium">
+          <a href="#" class="text-cyan-400 hover:underline">Ver Código / Demonstração &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Projeto 2 -->
+      <article class="p-6 sm:p-8 rounded-xl border border-slate-800 bg-slate-900/40">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-3">
+          <h3 class="text-xl font-bold text-white">Dashboard com Arquitetura Defensiva & Análise DAST</h3>
+          <span class="text-xs px-2.5 py-1 rounded bg-amber-950 text-amber-300 border border-amber-800">Dev + AppSec</span>
+        </div>
+        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+          Interface administrativa protegida com cabeçalhos rigorosos de CSP, validação contra injeções (OWASP) e esteira de verificação periódica de vulnerabilidades via OWASP ZAP.
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs text-slate-300 mb-6">
+          <span class="px-2 py-1 bg-slate-800 rounded">Next.js</span>
+          <span class="px-2 py-1 bg-slate-800 rounded">TypeScript</span>
+          <span class="px-2 py-1 bg-slate-800 rounded">AppSec / CSP</span>
+          <span class="px-2 py-1 bg-slate-800 rounded">SonarQube</span>
+        </div>
+        <div class="flex gap-4 text-sm font-medium">
+          <a href="#" class="text-cyan-400 hover:underline">Ver Estudo de Caso &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Rodapé / Contato -->
+  <footer id="contato" class="py-12 px-6 max-w-5xl mx-auto border-t border-slate-800 text-center text-sm text-slate-500">
+    <p class="mb-2">Pronto para colaborar em engenharia de software com foco em qualidade e segurança.</p>
+    <p>Conecte-se comigo pelo <a href="www.linkedin.com/in/lucas-mateus-a00485242" class="text-cyan-400 hover:underline">LinkedIn</a> ou envie um e-mail.</p>
+  </footer>
+
 </body>
 </html>
