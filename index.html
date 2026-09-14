@@ -3,10 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio | Software Engineer</title>
+  <title>Portfólio | Software developer</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      cursor: default;
+    }
+
+    .cursor-shadow {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: 14px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(8, 199, 212, 0.651);
+      filter: blur(8px);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.9;
+      transition: transform 120ms ease, width 180ms ease, height 180ms ease, background 180ms ease;
+    }
+
+    .cursor-shadow::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 80px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(8, 199, 212, 0.651);
+      filter: blur(7px);
+      transform: translate(-50%, -50%);
+      opacity: 0.75;
+    }
+
+    .cursor-shadow.active {
+      width: 44px;
+      background: rgba(16, 185, 129, 0.52);
+      filter: blur(10px);
+    }
+
+    @media (pointer: coarse) {
+      .cursor-shadow {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white">
+  <div class="cursor-shadow" aria-hidden="true"></div>
 
   <!-- Navegação -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800">
@@ -42,6 +90,29 @@
       </a>
     </div>
   </section>
+
+  <script>
+    const cursorShadow = document.querySelector('.cursor-shadow');
+
+    window.addEventListener('mousemove', (event) => {
+      if (!cursorShadow) return;
+
+      cursorShadow.style.left = `${event.clientX}px`;
+      cursorShadow.style.top = `${event.clientY}px`;
+    });
+
+    document.querySelectorAll('a, button, .card, .project-card').forEach((element) => {
+      element.addEventListener('mouseenter', () => {
+        if (!cursorShadow) return;
+        cursorShadow.classList.add('active');
+      });
+
+      element.addEventListener('mouseleave', () => {
+        if (!cursorShadow) return;
+        cursorShadow.classList.remove('active');
+      });
+    });
+  </script>
 
   <!-- Skills Grid -->
   <section id="skills" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-800">
@@ -131,12 +202,30 @@
         </div>
       </article>
 
+      <article class="p-6 sm:p-8 rounded-xl border border-slate-800 bg-slate-900/40">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-3">
+          <h3 class="text-xl font-bold text-white">Mini game foco em organização e edição de métricas</h3>
+          <span class="text-xs px-2.5 py-1 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">Game Dev</span>
+        </div>
+        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+          Jogo 2D desenvolvido com tecnologias web nativas (HTML5 Canvas, CSS3 e JavaScript Vanilla), com arquitetura orientada à separação de regras de negócio e parametrização dinâmica de mecânicas de gameplay.
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs text-slate-300 mb-6">
+          <span class="px-2 py-1 bg-slate-800 rounded">Html5</span>
+          <span class="px-2 py-1 bg-slate-800 rounded">Css3</span>
+          <span class="px-2 py-1 bg-slate-800 rounded">JS Dom</span>
+        </div>
+        <div class="flex gap-4 text-sm font-medium">
+          <a href="https://lucasmateus22.github.io/Kitty-Platformer-2D-Game/" class="text-cyan-400 hover:underline">Ver Game &rarr;</a>
+        </div>
+      </article>
+
     </div>
   </section>
 
   <!-- Rodapé / Contato -->
   <footer id="contato" class="py-12 px-6 max-w-5xl mx-auto border-t border-slate-800 text-center text-sm text-slate-500">
-    <p class="mb-2">Pronto para colaborar em engenharia de software com foco em qualidade e segurança.</p>
+    <p class="mb-2">Pronto para colaborar com o desenvolvimento de software com foco em qualidade e segurança.</p>
     <p>Conecte-se comigo pelo <a href="www.linkedin.com/in/lucas-mateus-a00485242" class="text-cyan-400 hover:underline">LinkedIn</a> ou envie um e-mail.</p>
   </footer>
 
