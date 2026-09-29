@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lucas Mateus | Engenheiro de Software</title>
+  <title>Lucas Mateus</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -320,13 +320,13 @@
     const projects = [
       {
         id: "geradocs",
-        title: "GeraDocs-V2",
+        title: "GeraDoc's",
         category: "web",
         badge: "Automação Operacional",
         description: "Solução voltada à automação e gestão integral de documentos, reduzindo trabalho manual e retrabalho de formatação.",
         details: "Desenvolvido para assegurar uniformidade na produção de relatórios e documentação corporativa. Inclui validação dinâmica de esquemas com TypeScript, exportação rápida e estrutura desenhada para escalabilidade de componentes.",
-        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Clean Code"],
-        repoUrl: "https://github.com/lucasmateus22/GeraDocs-V2"
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Clean Code", "GovUI"],
+        repoUrl: ""
       },
       {
         id: "nextmap",
@@ -334,13 +334,13 @@
         category: "geo",
         badge: "Dados Geoespaciais",
         description: "Aplicação voltada para o processamento e exibição de dados geoespaciais e cartografia vetorial interativa.",
-        details: "Projeto orientado à manipulação fluida de coordenadas em mapas vetoriais, otimização de renderizações pesadas no navegador e integração com APIs cartográficas em tempo real.",
-        tags: ["Next.js", "Map APIs", "TypeScript", "Performance Web"],
+        details: "Projeto orientado à manipulação fluida de coordenadas em mapas vetoriais, otimização de renderizações pesadas no navegador e cartográficas em tempo real.",
+        tags: ["Next.js", "Map APIs", "TypeScript", "Performance Web", ["MapBox"]],
         repoUrl: "https://github.com/lucasmateus22/nextMap"
       },
       {
         id: "atendimentocidadao",
-        title: "AtendimentoCidadao",
+        title: "Atendimento Cidadão",
         category: "web",
         badge: "Serviços Públicos",
         description: "Plataforma de submissão e triagem de pedidos com rigorosa validação de formulários e acessibilidade.",
@@ -350,7 +350,7 @@
       },
       {
         id: "productmanager",
-        title: "product-manager-front",
+        title: "product manager",
         category: "web",
         badge: "Gestão Corporativa",
         description: "SPA de inventário e gestão de dados com consumo desacoplado de APIs REST e filtros reativos.",
@@ -365,7 +365,7 @@
         badge: "Game Loop & Física",
         description: "Jogo de plataformas bidimensional focado em máquinas de estados e vetores de colisão precisos.",
         details: "Implementação de loops de atualização em tempo real, física de pulo responsiva, gravidade e controlo estrito de transições de animação de personagens.",
-        tags: ["Godot / GDScript", "Lógica 2D", "Física Vetorial"],
+        tags: ["Lógica 2D", "Física Vetorial"],
         repoUrl: "https://github.com/lucasmateus22/Kitty-Platformer-2D-Game"
       },
       {
@@ -375,7 +375,7 @@
         badge: "Eficiência Energética",
         description: "Interface utilitária para cálculo e monitorização inteligente de consumo elétrico.",
         details: "Simulação de gastos tarifários e estimativas de poupança através de representações visuais simples e funcionais para o utilizador.",
-        tags: ["JavaScript", "Tailwind CSS", "Métricas"],
+        tags: ["JavaScript", "CSS3"],
         repoUrl: "https://github.com/lucasmateus22/PoupeVoltz"
       }
     ];
@@ -465,9 +465,9 @@
         </div>
 
         <div class="flex gap-3">
-          <a href="${p.repoUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 text-center rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2">
+          <a ${p.repoUrl ? `href="${p.repoUrl}"`:""} target="_blank" rel="noopener noreferrer" class="flex-1 py-3 text-center rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2">
             <i data-lucide="github" class="w-4 h-4"></i>
-            <span>Ver Repositório no GitHub</span>
+            <span>${p.repoUrl ? 'Acesse o repositório' : 'Link não disponível'}</span>
           </a>
         </div>
       `;
